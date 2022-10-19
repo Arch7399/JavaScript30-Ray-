@@ -42,7 +42,16 @@
 
 <button></button>
 <script>
+const boxes = document.querySelectorAll('div');
+boxes.forEach(box => box.addEventListener('click', logger, {
+  capture : false,
+  once : true
+}))
 
+function logger(e){
+  console.log(this.classList.value);
+  e.stopPropagation();
+}
 </script>
 </body>
 </html>
